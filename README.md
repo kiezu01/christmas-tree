@@ -1,1 +1,3 @@
-# testgit
+- Christmas tree code using c++.
+- Download and enjoy it.
+- [About me](https://www.facebook.com/profile.php?id=100030261573921)

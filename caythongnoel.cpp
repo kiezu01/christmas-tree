@@ -3,7 +3,6 @@
 #include<windows.h>
 #include<conio.h>
 #include<time.h>
-#include<math.h>
 using namespace std;
 void TextColor (int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE) , color);

@@ -4,15 +4,18 @@
 #include<conio.h>
 #include<time.h>
 using namespace std;
+
 void TextColor (int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE) , color);
 }
+
 void gotoXY (int column, int line) {
 	COORD coord;
 	coord.X = column;
 	coord.Y = line;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
+
 char treeKeys[] = {'0','~','-', '.','.', '~', '-','~','-','*', '.','.', '~', '-', '.','.', '~', '-', '.','.', '~', '-', '@','.','.', '~', '-', '.','.', '~', '-', '.','.', '~', '-'} ;
 int foliageWitch = 70;
 const int ROWS = 45;
@@ -21,18 +24,21 @@ const int NRANDOM = 3;
 const int NTIMES = 450;
 const double WAIT = 200;
 const char SNOW = '*';
+
 int randomColor() {
 	int colorArr[] = {14,12,9,13};
 	int n = sizeof(colorArr)/sizeof(int);
 	int res = rand()%n;
 	return colorArr[res];
 }
+
 bool randomStar() {
 	int res = rand()%200;
 	if(res==1)
 		return true;
 	return false;
 }
+
 void displayTree(char treeMap[ROWS][COLS], int treeMapColor[ROWS][COLS]) {
 	int treeKeyCount= sizeof(treeKeys)/sizeof(treeKeys[0]);
 	int pfCount = 0;
@@ -101,6 +107,7 @@ void displayTree(char treeMap[ROWS][COLS], int treeMapColor[ROWS][COLS]) {
 		cout<<'_';
 	}
 }
+
 void plot( char m[ROWS][COLS], int topRow ) {
 	TextColor(15);
 	for ( int i = 0; i < ROWS; i++ ) {
@@ -113,6 +120,7 @@ void plot( char m[ROWS][COLS], int topRow ) {
 	}
 	gotoXY(COLS,ROWS);
 }
+
 void clrscr(char treeMap[ROWS][COLS],int treeMapColor[ROWS][COLS],char m[ROWS][COLS], int topRow ,int t) {
 	for ( int i = 0; i < ROWS; i++ ) {
 		int row = ( topRow + i ) % ROWS;
@@ -127,9 +135,11 @@ void clrscr(char treeMap[ROWS][COLS],int treeMapColor[ROWS][COLS],char m[ROWS][C
 			}
 	}
 }
+
 void waitTime( double waitSecs ) {
 	Sleep(waitSecs);
 }
+
 int main() {
 	srand(time(NULL));
 	TextColor(15);
